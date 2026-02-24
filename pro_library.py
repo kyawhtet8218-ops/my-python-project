@@ -34,11 +34,20 @@ def show_books():
         for t, a in library.items():
             print(f"Title: {t} | Author: {a}")
 
+def delete_book():
+    title = input("ဖျက်လိုသော စာအုပ်အမည်ကို ရိုက်ပါ: ")
+    if title in library:
+        del library[title]
+        save_data() # ဖိုင်ထဲမှာပါ ပျက်သွားအောင် ပြန်သိမ်းမယ်
+        print(f"'{title}' ကို ဖျက်ပြီးပါပြီ။")
+    else:
+        print("ရှာမတွေ့ပါ။")
+
 # --- Main Program ---
 load_data() # Program စတာနဲ့ အရင်က ရှိပြီးသားစာရင်းကို ဆွဲတင်မယ်
 
 while True:
-    print("\n1. Add | 2. View | 3. Exit")
+        print("\n1. Add | 2. View | 3. Delete | 4. Exit") # 3. Delete ထည့်လိုက်တယ်
     choice = input("ရွေးချယ်ပါ: ")
 
     if choice == '1':
@@ -46,5 +55,7 @@ while True:
     elif choice == '2':
         show_books()
     elif choice == '3':
-        print("Bye!")
+        delete_book() # Delete function ကို ခေါ်လိုက်တယ်
+    elif choice == '4':
         break
+
