@@ -1,0 +1,3 @@
+apple|english
+Orange|english
+watermelon|english
